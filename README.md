@@ -24,18 +24,15 @@ the bootstrap script.
 
 ## Use it
 
-This repo is **private**, so the bootstrap clone authenticates with a
-fine-grained GitHub PAT supplied via the `SKILLS_TOKEN` environment variable
-(the script feeds it to git through `GIT_ASKPASS`, so it never lands in argv).
+This repo is **public** (it holds only generic, non-sensitive skills), so the
+bootstrap clone needs no authentication — which matters because Claude Code web
+setup scripts run *before* env vars/secrets are injected, so a token wouldn't be
+available there anyway.
 
-1. Create a fine-grained PAT: GitHub → Settings → Developer settings →
-   Personal access tokens → Fine-grained tokens. Scope it to **only**
-   `neily21/claude-skills`, with **Repository permissions → Contents:
-   Read-only**. Copy the `github_pat_…` value.
-2. **Cloud (the "default environment"):** add `SKILLS_TOKEN` as an environment
-   variable/secret in your Claude Code web environment, then paste this script
-   into its setup/init step so it runs on every sandbox.
-3. **New laptop:** `SKILLS_TOKEN=github_pat_xxx ./bootstrap-claude-skills.sh`
+1. **Cloud (the "default environment"):** paste `bootstrap-claude-skills.sh`
+   into your Claude Code web environment's setup/init step so it runs on every
+   new session. No environment variables or tokens required.
+2. **New laptop:** `./bootstrap-claude-skills.sh`
 
 > The MCP-backed plugins (playwright, figma, vercel, github) also need the cloud
 > environment to permit their MCP servers/network to be fully functional. The
