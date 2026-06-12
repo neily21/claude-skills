@@ -1,0 +1,11 @@
+{
+  "skill_name": "agent-dev-team",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I have a small Node todo API (no dependencies, Node 18+) in the repo directory. Use an agent dev team approach to deliver this feature with high quality: tagging support for todos. Requirements: (1) a todo can have zero or more string tags; (2) POST /todos accepts an optional tags array; (3) POST /todos/:id/tags adds a tag and DELETE /todos/:id/tags/:tag removes one; (4) GET /todos?tag=x returns only todos with that tag; (5) invalid tags (non-string or empty) are rejected with a 400; (6) all existing endpoints and tests keep working. The work must be independently QA-tested before you declare it done, and `npm test` must pass.",
+      "expected_output": "Working tagged-todo feature with passing tests, plus team artifacts: .agent-team/<slug>/plan.md with vision/acceptance criteria/slices/file ownership/contracts, recon and slice report files, qa/<slug>/charter.md, and an independent QA test report + defect log per qa-uat-cycle. Final summary checks acceptance criteria one by one.",
+      "files": ["sample-repo (todo API)"]
+    }
+  ]
+}
